@@ -22,7 +22,7 @@
         /* Style the header with a background color and center the text */
         
         header {
-            background: linear-gradient(135deg, grey, #7b92a3);
+            background: linear-gradient(135deg, grey, #c8dae8);
             color: #fff;
             padding: 20px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -136,7 +136,7 @@
         }
 
         /* Style sections with background colors and padding */
-        #about,#portfolio {
+        #about,#portfolio,#Education {
             padding: 30px;
             background-color: wheat ;
             margin: 20px;
@@ -149,6 +149,26 @@
             margin: 20px;
             border-radius: 5px;
             width: fit-content;
+        }
+
+
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-item span {
+            color: #555;
+        }
+
+        .education-item b {
+            font-size: 1.1rem;
         }
 
 
@@ -532,8 +552,10 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#Education">Education</a></li>
                 <li><a href="#Skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                
                                 
             </ul>
         </nav>
@@ -567,7 +589,23 @@
     <section id="portfolio">
         <h2>Portfolio</h2>
         <!-- Add your portfolio projects here -->
-    </section>  
+    </section>
+    
+    <section id="Education">
+        <h2>Education</h2>
+        <div class="education-item">
+            <b>BTech</b>
+            <span>MallaReddy Institute of Technology and Science &nbsp; &nbsp; 2019-2023 &nbsp; (7.2)</span>
+        </div>
+        <div class="education-item">
+            <b>Intermediate</b>
+            <span>Narayana Junior College &nbsp; &nbsp; 2017-2019 &nbsp; (8.9)</span>
+        </div>
+        <div class="education-item">
+            <b>Schooling</b>
+            <span>SFS High School &nbsp; &nbsp; &lt;2017 &nbsp; (9.5)</span>
+        </div>
+    </section>
 
     <!--heading for skills-->
     <h1 id="Skills">Programming Skills</h1>
@@ -777,8 +815,8 @@
                     <div class="contact-info">
                     <h3>Contact Information</h3>
                     <p>Email: likhith1628@gmail.com</p>
-                    <p>Phone: 9014811624</p>
-                    <p>Address: 123 Main Street, Anytown, CA 12345</p>
+                    <p>Phone: +91 9014811624</p>
+                    <p>Address: 1-247/2/A, Siddareddy street, Madhira, Khammam, Telangana, India 507203</p>
                     </div>
                 </section>
             </td>
