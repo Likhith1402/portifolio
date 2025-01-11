@@ -1,8 +1,10 @@
-// Add this to a new file: js/contact.js
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     const status = document.getElementById('status');
     const submitButton = document.getElementById('submit-button');
+
+    // Initialize EmailJS with your public key
+    emailjs.init("C5FjhPRntAOgzPQRB"); // Replace with your actual public key
 
     if (form) {
         form.addEventListener('submit', handleSubmit);
@@ -17,27 +19,30 @@ document.addEventListener('DOMContentLoaded', function() {
         status.style.display = 'none';
 
         try {
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
+            // Get form data
+            const formData = {
+                from_name: form.querySelector('[name="name"]').value,
+                reply_to: form.querySelector('[name="email"]').value,
+                message: form.querySelector('[name="message"]').value
+            };
 
-            const data = await response.json();
+            // Send email using EmailJS
+            const response = await emailjs.send(
+                "service_o63uqko", // Replace with your EmailJS service ID
+                 // Replace with your EmailJS template ID
+                formData
+            );
 
-            if (response.ok) {
+            if (response.status === 200) {
                 // Success message
                 status.textContent = 'Thanks for your submission! I will get back to you soon.';
                 status.className = 'alert alert-success';
                 form.reset(); // Clear the form
             } else {
-                // Error message
-                throw new Error(data.error || 'Form submission failed');
+                throw new Error('Failed to send message');
             }
         } catch (error) {
+            console.error('Error:', error);
             status.textContent = 'Oops! There was a problem submitting your form. Please try again.';
             status.className = 'alert alert-error';
         } finally {
