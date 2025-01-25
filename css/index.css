@@ -632,8 +632,8 @@
 
 /* Enhanced first image card with professional animation */
 .col .container {
-    perspective: 1000px;
-    transition: transform 0.6s ease-in-out;
+    perspective: 100px;
+    /**transition: transform 0.6s ease-in-out;**/
 }
 
 .col .container .front {
