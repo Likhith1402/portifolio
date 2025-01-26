@@ -27,25 +27,19 @@
         <div class="profile-container">
             <div class="profile-image-wrapper">
                 <img src="./images/1000001561.jpg" alt="U Likhith Reddy Profile">
-                <div class="profile-hover-text">
-                    <h3>Likhith Reddy</h3>
-                    <p>Innovative Software Developer</p>
-                    <p>Transforming Ideas into Digital Solutions</p>
-                </div>
+               
             </div>
             <div class="profile-description">
-                <h2>About Me</h2>
-                <p style="font-size:20px">Proficient Software Developer with a solid foundation in Java, Python, and various web technologies. Experienced in logical problem-solving, error handling, and algorithmic trading. Demonstrated ability to work effectively in team settings and independently, with excellent communication and interpersonal skills. Quick learner with a passion for embracing new technologies.</p>
+                <h2>UPPELA lIKHITH REDDY</h2>
+                <p style="font-size:18px">Innovative Software Developer skilled in creating digital solutions</p>
+                <P style="font-size:18px">Expert in Python, Java, and web technologies</P>
+
             </div>
         </div>
 
     <section id="about">
         <h2>About Me</h2>
-        <p style="font-size:20px" >Proficient Software Developer with a solid foundation in Java, Python, and various web
-            technologies. Experienced in logical problem-solving, error handling, and algorithmic trading.
-            Demonstrated ability to work effectively in team settings and independently, with excellent
-            communication and interpersonal skills. Quick learner with a passion for embracing new
-            technologies.</p>
+        <p style="font-size:20px" >I am a passionate software developer with strong expertise in Java, Python, and TypeScript, specializing in building scalable web applications and solving complex logical problems. My experience spans working with technologies like React.js, Node.js, Redis, and Docker. I’ve successfully contributed to projects involving stock market strategy analysis, web development, and IoT-based systems, demonstrating my ability to adapt to diverse domains. Known for my problem-solving skills, team collaboration, and keen interest in learning new technologies, I am driven to create impactful solutions. I bring a mix of technical proficiency and a proactive approach to both independent and collaborative environments.</p>
     </section>
 
     <section id="portfolio">
@@ -59,20 +53,37 @@
 
     <!-- Add this section right after the existing Portfolio section -->
     <section id="portfolio" class="projects-section">
-        <h2>Projects</h2>
+        <h2> Projects</h2>
         <div class="projects-container">
             <div class="project-card">
                 <div class="project-image">
-                    <img src="./images/image1.png" alt="Drishti Project">
+                    <img src="./images/image6.png" alt="Drishti Web Application">
                 </div>
                 <div class="project-details">
-                    <h3>Drishti Stock Analysis Web Application</h3>
-                    <p>Developed webpages for the Drishti project at Niharika Technologies. The main purpose is to analyze stock trends, track stocks, calculate returns, and display them in numbers and graphs. Languages used include React, TypeScript, Python, and Node.js.</p>
+                    <h3>Drishti Stock Market Web Application</h3>
+                    <p>Developed a comprehensive stock market monitoring platform designed to empower investors with real-time insights and advanced analytical capabilities.</p>
+                    <div class="project-highlights">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Interactive trend visualization</li>
+                            <li>User position tracking</li>
+                            <li>Profit calculation engine</li>
+                            <li>Real-time market data integration</li>
+                        </ul>
+                    </div>
                     <div class="project-technologies">
-                        <span>React</span>
+                        <span>React.js</span>
                         <span>TypeScript</span>
-                        <span>Python</span>
                         <span>Node.js</span>
+                        <span>Python</span>
+                        <span>Redis</span>
+                        <span>Docker</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Role:</strong> Software Developer
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="view-images-btn" data-project="drishti">View Images</a>
                     </div>
                 </div>
             </div>
@@ -80,15 +91,29 @@
             <div class="project-card">
                 <div class="project-image">
                     <img src="./images/image3.jpg" alt="Gas Leakage Detection System">
-                    
                 </div>
                 <div class="project-details">
-                    <h3>Gas Leakage Detection System</h3>
-                    <p>Developed a gas leakage detection system using IoT. The system detects gas leaks and sends notifications. Languages and tools used include Embedded C and fabrication using Proteus software.</p>
+                    <h3>IoT Gas Leakage Detection System</h3>
+                    <p>Engineered an advanced IoT-based solution for early detection and prevention of potential gas-related hazards in residential and industrial environments.</p>
+                    <div class="project-highlights">
+                        <h4>Key Components:</h4>
+                        <ul>
+                            <li>Custom PCB design</li>
+                            <li>Sensor integration</li>
+                            <li>Real-time alert mechanism</li>
+                            <li>Robust safety protocol</li>
+                        </ul>
+                    </div>
                     <div class="project-technologies">
+                        <span>Proteus</span>
+                        <span>Arduino</span>
                         <span>Embedded C</span>
-                        <span>Proteus Software</span>
-                        <span>IoT</span>
+                    </div>
+                    <div class="project-role">
+                        <strong>Role:</strong> Designer & Developer
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="view-images-btn" data-project="gasLeakage">View Images</a>
                     </div>
                 </div>
             </div>
@@ -365,9 +390,17 @@
                         </li>
                         
                     </ul>
+                    <div class="resume-section">
+                        <a href="./images/Likhith Reddy Resume.pdf" target="_blank" class="resume-btn">
+                            <i class="fas fa-file-download"></i> View Resume
+                        </a>
+                    </div>
                 </div>
+
+                
             </td>
 
+            
         </tr>
 
     </table>
@@ -386,6 +419,18 @@
     </footer>
 
     <script src="./js/contact.js"></script>
+
+    <div id="project-images-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-project-title">Project Images</h2>
+            <div class="modal-image-gallery" id="modal-image-container">
+                <!-- Images will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/project-modal.js"></script>
 
 </body>
 </html>
