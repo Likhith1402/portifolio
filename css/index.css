@@ -133,6 +133,7 @@
             background-color: wheat ;
             margin: 20px;
             border-radius: 5px;
+            justify-content:flex-start;
         }
 
         #Skills ,#Tools {
