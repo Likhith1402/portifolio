@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             './images/image2.png'
         ],
         gasLeakage: [
-            './images/image5.jpg',
+            './images/image5.png',
             './images/image4.png'
         ]
     };
