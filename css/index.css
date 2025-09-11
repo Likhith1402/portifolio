@@ -864,3 +864,85 @@
     object-fit: contain;
     border-radius: 5px;
 }
+
+/* === Portfolio layout fix: vertical cards (image on top) === */
+.projects-section {
+  padding: 60px 8% !important;
+  background-color: #f9f9f9 !important;
+}
+
+/* Responsive grid of cards */
+.projects-section .projects-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 28px !important;
+}
+
+/* Card becomes vertical stack */
+.projects-section .project-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  width: 100% !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+
+/* Banner image on top */
+.projects-section .project-card .project-image {
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+.projects-section .project-card .project-image img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Content in the middle */
+.projects-section .project-card .project-details {
+  padding: 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
+}
+
+/* Tech chips */
+.projects-section .project-technologies {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+/* Buttons pinned to bottom */
+.projects-section .project-links {
+  margin-top: auto !important;
+  display: flex !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}
+
+/* Unified buttons */
+.projects-section .project-links a {
+  display: inline-block !important;
+  padding: 10px 16px !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  transition: transform .15s ease, background-color .2s ease !important;
+}
+.projects-section .project-links a:hover { transform: translateY(-1px); }
+
+/* Distinguish primary/secondary */
+.projects-section .project-links a.view-images-btn {
+  background: #e6f0ff; color: #0b5ed7;
+}
+.projects-section .project-links a.view-code-btn {
+  background: #0b5ed7; color: #fff;
+}
