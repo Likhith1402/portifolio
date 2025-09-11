@@ -1092,7 +1092,7 @@
 /* card = vertical stack: image on top -> details -> links bottom */
 .project-card {
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: row !important;
   height: 100% !important;
   background: #fff !important;
   border-radius: 14px !important;
