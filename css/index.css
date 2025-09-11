@@ -864,98 +864,179 @@
     object-fit: contain;
     border-radius: 5px;
 }
+/* ================================
+   Portfolio (intro + projects)
+   Minimal, conflict-free CSS
+   ================================ */
 
-/* === Portfolio layout fix: vertical cards (image on top) === */
+/* ---- Intro section (dark gradient + glass card) ---- */
+#portfolio-intro {
+  padding: 60px 8%;
+  background: linear-gradient(135deg, #0a192f, #172a45);
+  color: #fff;
+}
+
+#portfolio-intro .intro-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  padding: 32px 40px;
+  backdrop-filter: blur(8px);
+}
+
+#portfolio-intro h2 {
+  font-size: 2.2rem;
+  margin: 0 0 16px 0;
+}
+
+#portfolio-intro p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+/* ---- Projects wrapper (light card canvas) ---- */
 .projects-section {
-  padding: 60px 8% !important;
-  background-color: #f9f9f9 !important;
+  padding: 60px 8%;
+  background: #f5f7fb;               /* subtle page contrast */
 }
 
-/* Responsive grid of cards */
-.projects-section .projects-container {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-  gap: 28px !important;
+.projects-section > .projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* exactly 2 cards per row */
+  gap: 28px;
 }
 
-/* Card becomes vertical stack */
-.projects-section .project-card {
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
-  width: 100% !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-  background: #fff !important;
+/* 1 column on small screens */
+@media (max-width: 768px) {
+  .projects-section > .projects-container {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Banner image on top */
-.projects-section .project-card .project-image {
-  width: 100% !important;
-  height: auto !important;
-  margin: 0 !important;
+/* ---- Project card (vertical) ---- */
+.project-card {
+  display: flex;
+  flex-direction: column;             /* stack: image → content → links */
+  height: 100%;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+  overflow: hidden;                   /* keep image corners clean */
 }
-.projects-section .project-card .project-image img {
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  aspect-ratio: 16 / 9;
+
+/* Banner image */
+.project-image {
+  width: 100%;
+}
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;               /* consistent banner */
   object-fit: cover;
 }
 
-/* Content in the middle */
-.projects-section .project-card .project-details {
-  padding: 20px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px !important;
-  flex: 1 1 auto !important;
-  width: 100% !important;
+/* Card body */
+.project-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 auto;                     /* grow to fill, so links can sit at bottom */
+}
+
+.project-details h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #1f2937;
+}
+
+.project-details p {
+  margin: 0;
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* Highlights list */
+.project-highlights h4 {
+  margin: 8px 0 6px 0;
+  font-size: 1rem;
+  color: #111827;
+}
+.project-highlights ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #374151;
+}
+.project-highlights li {
+  margin: 4px 0;
 }
 
 /* Tech chips */
-.projects-section .project-technologies {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 8px !important;
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.project-technologies span {
+  font-size: 0.85rem;
+  background: #eef2ff;
+  color: #1e40af;
+  padding: 6px 10px;
+  border-radius: 999px;
 }
 
-/* Buttons pinned to bottom */
-.projects-section .project-links {
-  margin-top: auto !important;
-  display: flex !important;
-  gap: 12px !important;
-  flex-wrap: wrap !important;
+/* Role line */
+.project-role {
+  color: #374151;
 }
 
-/* Unified buttons */
-.projects-section .project-links a {
-  display: inline-block !important;
-  padding: 10px 16px !important;
-  border-radius: 8px !important;
-  text-decoration: none !important;
-  font-weight: 600 !important;
-  transition: transform .15s ease, background-color .2s ease !important;
-}
-.projects-section .project-links a:hover { transform: translateY(-1px); }
-
-/* Distinguish primary/secondary */
-.projects-section .project-links a.view-images-btn {
-  background: #e6f0ff; color: #0b5ed7;
-}
-.projects-section .project-links a.view-code-btn {
-  background: #0b5ed7; color: #fff;
-}
-/* Force 2 cards per row for project grid */
-.projects-section .projects-container {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;  /* 2 equal columns */
-  gap: 28px !important; /* space between cards */
+/* Links block pinned to bottom */
+.project-links {
+  margin-top: auto;                   /* push links to bottom of the card */
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-/* On small screens (tablets/phones), stack as 1 column */
-@media (max-width: 768px) {
-  .projects-section .projects-container {
-    grid-template-columns: 1fr !important;
+/* Buttons */
+.project-links a {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform .15s ease, background-color .2s ease, opacity .2s ease;
+}
+
+/* Secondary (images / demo) */
+.project-links a.view-images-btn {
+  background: #e6f0ff;
+  color: #0b5ed7;
+}
+.project-links a.view-images-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* Primary (code) */
+.project-links a.view-code-btn {
+  background: #0b5ed7;
+  color: #ffffff;
+}
+.project-links a.view-code-btn:hover {
+  transform: translateY(-1px);
+  background: #0a4fb7;
+}
+
+/* ---- Optional: equalize card heights visually when text varies ---- */
+@media (min-width: 769px) {
+  .project-card {
+    min-height: 560px;                /* tweak to taste */
   }
 }
