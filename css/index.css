@@ -946,3 +946,16 @@
 .projects-section .project-links a.view-code-btn {
   background: #0b5ed7; color: #fff;
 }
+/* Force 2 cards per row for project grid */
+.projects-section .projects-container {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;  /* 2 equal columns */
+  gap: 28px !important; /* space between cards */
+}
+
+/* On small screens (tablets/phones), stack as 1 column */
+@media (max-width: 768px) {
+  .projects-section .projects-container {
+    grid-template-columns: 1fr !important;
+  }
+}
