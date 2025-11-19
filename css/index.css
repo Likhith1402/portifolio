@@ -25,9 +25,9 @@ header {
 }
 
 nav {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  width: 100%;
+  padding: 0 4vw;
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,10 +83,11 @@ nav a:hover::after {
 
 /* ========== PROFILE BANNER ========== */
 
+/* Profile row spans full width with side padding */
 .profile-container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
+  width: 100%;
+  padding: 20px 4vw;
+  margin: 20px 0;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -119,10 +120,11 @@ nav a:hover::after {
 /* ========== SECTIONS: ABOUT / EDUCATION / TITLES ========== */
 
 section {
-  max-width: 1200px;
-  margin: 20px auto;
+  width: 100%;
+  padding: 20px 4vw;
+  box-sizing: border-box;
+  margin: 0 0 20px 0;
 }
-
 #about,
 #Education {
   background-color: wheat;
@@ -169,14 +171,12 @@ section {
 /* Section titles used for skills/tools headings */
 #Skills,
 #Tools {
-  max-width: 1200px;
-  margin: 30px auto 10px auto;
+  width: auto;
+  margin: 30px 4vw 10px 4vw;
   padding: 10px 16px;
   background-color: rgb(231, 190, 210);
   border-radius: 5px;
-  width: fit-content;
 }
-
 /* ========== PORTFOLIO INTRO ========== */
 
 #portfolio-intro {
@@ -208,11 +208,11 @@ section {
 /* ========== PROJECTS (FLEX, RESPONSIVE) ========== */
 
 .projects-section {
-  max-width: 1200px;
-  margin: 20px auto 40px auto;
-  padding: 30px 20px;
+  width: 100%;
+  padding: 30px 4vw 40px 4vw;
+  margin: 0 0 20px 0;
   background: #ead4ad;
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .projects-section > h2 {
@@ -227,8 +227,8 @@ section {
 
 /* each card flexes: 1–3 per row depending on width */
 .project-card {
-  flex: 1 1 320px;
-  max-width: 380px;
+  flex: 1 1 320px;       /* min width 320px, then flex */
+  max-width: 420px;      /* prevents huge stretching on ultra-wide screens */
   display: flex;
   flex-direction: column;
   background: #ffffff;
@@ -236,6 +236,13 @@ section {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
 }
 
 .project-card:hover {
@@ -374,8 +381,9 @@ section {
 /* ========== SKILLS / DATABASES / TOOLS CARDS ========== */
 
 .wrapper {
-  max-width: 1200px;
-  margin: 0 auto 20px auto;
+  width: 100%;
+  padding: 0 4vw 20px 4vw;
+  box-sizing: border-box;
 }
 
 .wrapper .cols {
@@ -648,50 +656,70 @@ button[type="submit"] {
   transform: scale(1.04);
 }
 
-/* ========== MODAL FOR PROJECT IMAGES ========== */
-
+/* Centered modal with same dimensions as before */
 .modal {
-  display: none;
+  display: none;                 /* shown via JS */
   position: fixed;
   z-index: 1000;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
 }
 
+/* Same width/position, but now scroll-aware inside */
 .modal-content {
   background-color: #fefefe;
-  margin: 6% auto;
+  margin: 5% auto;               /* similar to your old 10% auto */
   padding: 20px;
   border-radius: 10px;
   width: 80%;
   max-width: 800px;
+  max-height: 90vh;              /* don't exceed viewport height */
   position: relative;
+
+  display: flex;                 /* header on top, gallery below */
+  flex-direction: column;
+  overflow: hidden;              /* outer shell fixed, inner scrolls */
 }
 
+/* Close button */
 .close-btn {
+  color: #aaa;
   position: absolute;
-  right: 16px;
   top: 10px;
+  right: 18px;
   font-size: 28px;
   font-weight: bold;
-  color: #888;
   cursor: pointer;
 }
 
-.modal-image-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 30px;
+/* Title inside modal */
+.modal-content h2 {
+  margin: 0 0 12px 0;
 }
 
+/* Scrollable image area */
+.modal-image-gallery {
+  margin-top: 10px;
+  flex: 1 1 auto;
+  overflow-y: auto;              /* <-- vertical scroll */
+  padding-right: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Images fit width, keep aspect ratio */
 .modal-image-gallery img {
-  max-width: 100%;
-  max-height: 400px;
+  width: 100%;
+  height: auto;
   object-fit: contain;
   border-radius: 5px;
 }
+
+
 
 /* ========== FOOTER ========== */
 
